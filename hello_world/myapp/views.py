@@ -18,7 +18,7 @@ class TaskViewSet(viewsets.ModelViewSet, generics.ListAPIView):
         ordering = ['project_title']
         Response(serializer_class.data)
 
-class TagViewSet(viewsets.ModelViewSet):   
+class TagViewSet(viewsets.ModelViewSet, generics.ListAPIView):   
         queryset = Tag.objects.all()  
         serializer_class = TagSerializer(queryset, many=True)
         filter_backends = [filters.SearchFilter, filters.OrderingFilter]
